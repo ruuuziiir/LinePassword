@@ -69,7 +69,22 @@ class EnterPasswordViewController: UIViewController {
     
     // 刪除上個輸入的數字
     @IBAction func backspace(_ sender: Any) {
-        back()
+        
+        if count != 0 {
+            
+            // button 可以按
+            backButton.isEnabled = true
+            
+            count -= 1
+            passwordImage.image = UIImage(named: pics[count])
+            keyin.removeLast()
+            // print(keyin) 可以檢查輸入情況
+            
+        } else {
+            
+            // button 不能按
+            backButton.isEnabled = false
+        }
     }
     
     // --------------------------------------------------------
@@ -92,25 +107,7 @@ class EnterPasswordViewController: UIViewController {
         keyin = ""
     }
     
-    // --------------------------------------------------------
-    
-    // 利用 count 判斷可否刪除上一個輸入的數字
-    func back() {
-        if count != 0 {
-            
-            // button 可以按
-            backButton.isEnabled = true
-            count -= 1
-            passwordImage.image = UIImage(named: pics[count])
-            keyin.removeLast()
-            print(keyin)
-            
-        } else {
-            
-            // button 不能按
-            backButton.isEnabled = false
-        }
-    }
+
     
     
 
