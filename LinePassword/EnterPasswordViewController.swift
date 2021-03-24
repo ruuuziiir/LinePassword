@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import LocalAuthentication
 
 
 class EnterPasswordViewController: UIViewController {
@@ -79,7 +78,7 @@ class EnterPasswordViewController: UIViewController {
     func judge() {
         
         if keyin == password {
-
+            statusLabel.text = "請輸入密碼。ˇ"
             self.performSegue(withIdentifier: "line", sender: self)
 
         }
